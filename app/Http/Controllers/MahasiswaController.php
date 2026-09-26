@@ -15,9 +15,9 @@ class MahasiswaController extends Controller
             'prodi' => 'Sistem Informasi',
             'kampus' => 'Universitas Unpam',
             'email' => 'mkhoirulsuryanto@gmail.com',
-            'status' => 'aktif',
+            'status' => 'Aktif',
         ];
 
-        return view('mahasiswa', compact('mahasiswa'));
+        return view('page.profile', compact('mahasiswa'));
     }
 }

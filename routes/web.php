@@ -15,4 +15,10 @@ Route::get('/about', function () {
     return view('page.about');
 });
 
-Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/', function () {
+        return view('admin.template');     
+    })->name('home');
+
+    Route::resource('project', \App\Http\Controllers\Admin\ProjectController::class);
+});

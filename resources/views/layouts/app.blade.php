@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{asset('bootstrap-5.3.8-dist/css/bootstrap.min.css')}}">
-    <script src="{{asset('public\bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js')}}"></script>
 </head>
 
 <body>
 
     <body class="bg-light d-flex flex-column min-vh-100">
-        <header?>
+        <header>
             @include('partials.header')
             </header>
             <main>

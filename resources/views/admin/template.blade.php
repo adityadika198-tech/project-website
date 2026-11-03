@@ -52,18 +52,23 @@
         <h4 class="text-center fw-bold text-white pb-3 border-bottom border-secondary">Admin Panel</h4>
         <ul class="nav flex-column mt-3">
             <li class="nav-item mb-1">
-                <a href="{{ route('admin.home') }}" class="nav-link">Dashboard</a>
+                <a href="{{ url('/admin/dashboard') }}" class="nav-link">Dashboard</a>
             </li>
             <li class="nav-item mb-1">
-                <a href="{{ route('admin.project.index') }}" class="nav-link">Project</a>
+                <a href="{{ url('/admin/project') }}" class="nav-link">Project</a>
             </li>
         </ul>
     </div>
     <div class="admin-content">
-        <div class="d-flex justify-content-between align-items-center pb-3 border-bottom bg-white p-3
-        rounded shadow-sm">
-            <h3 class="fw-bold mb-0">Dashboard</h3>
-            <span class="text-muted fw-semibold">Halo, Administrator</span>
+        <div class="d-flex justify-content-between align-items-center pb-3 border-bottom bg-white p-3 rounded shadow-sm">
+            <h3 class="fw-bold mb-0">@yield('title')</h3>
+            <div class="d-flex align-items-center gap-3">
+                <span class="text-muted fw-semibold">Halo, {{ Auth::guard('admin')->user()->name ?? 'Administrator' }}</span>
+                <form action="{{ route('admin.logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-outline-danger btn-sm">Logout</button>
+                </form>
+            </div>
         </div>
         @yield('content')
     </div>
